@@ -2,6 +2,7 @@ using VideogiochiAppApi.Data;
 using Microsoft.EntityFrameworkCore;
 using VideogiochiAppApi.Interfaces;
 using VideogiochiAppApi.Repository;
+using VideogiochiAppApi.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IVideogiocoRepository, VideogiocoRepository>();
+builder.Services.AddScoped<IProprietarioRepository, ProprietarioRepository>();
+builder.Services.AddScoped<IPaeseRepository, PaeseRepository>();
+
+// Aggiungi AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
