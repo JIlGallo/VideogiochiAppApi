@@ -13,7 +13,11 @@ namespace VideogiochiAppApi.Interfaces
 
       ICollection<Videogioco> GetVideogiocoByOwner(int propId);
 
+        bool CreateProprietario(Proprietario proprietario);
+        bool UpdateProprietario(Proprietario proprietario);
+        bool DeleteProprietario(Proprietario proprietario);
 
 
+        bool Save();
     }
 }

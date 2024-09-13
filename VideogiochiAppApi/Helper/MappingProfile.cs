@@ -8,9 +8,10 @@ namespace VideogiochiAppApi.Helper
     {
         public MappingProfile() 
         { 
-            CreateMap<Videogioco, VideogiocoDto>();
-            CreateMap<Proprietario, ProprietarioDto>();
-            CreateMap<Paese, PaeseDto>();
+            CreateMap<Videogioco, VideogiocoDto>().ReverseMap();
+            CreateMap<Proprietario, ProprietarioDto>().ReverseMap();
+            CreateMap<Paese, PaeseDto>().ReverseMap();
+
 
         }
 

@@ -13,7 +13,7 @@ namespace VideogiochiAppApi.Model
         [Required]
         public string? Name { get; set; }
 
-
+         [InverseProperty("Paese")]
         public ICollection<Proprietario>? Proprietario { get; set; }
     }
 }

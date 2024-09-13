@@ -12,6 +12,20 @@ namespace VideogiochiAppApi.Repository
         {
             this.dataContext = dataContext;
         }
+
+        public bool CreateVideogioco(int proprietarioId, Videogioco videogioco)
+        {
+            var Proprietario = dataContext.Proprietari.FirstOrDefault(p => p.IdProprietario == proprietarioId);
+            var videogiocoProprietario = new VideogiocoProprietario()
+            {
+                Proprietario = Proprietario,
+                Videogioco = videogioco
+            };
+            dataContext.Add(videogiocoProprietario);
+            return Save();
+           
+        }
+
         public ICollection<Videogioco> GetVideogiochi()
         {
             return dataContext.Videogiochi.OrderBy(v => v.IdVideogioco).ToList();
@@ -44,5 +58,21 @@ namespace VideogiochiAppApi.Repository
             return videogioco.DataDiRilascio;
         }
 
+        public bool UpdateVideogioco(int proprietarioId, Videogioco videogioco)
+        {
+            dataContext.Update(videogioco);
+            return Save();
+        }
+        public bool Save()
+        {
+            var saveX = dataContext.SaveChanges();
+            return saveX > 0 ? true : false;
+        }
+
+        public bool DeleteVideogioco(Videogioco videogioco)
+        {
+            dataContext.Remove(videogioco);
+            return Save();
+        }
     }
 }

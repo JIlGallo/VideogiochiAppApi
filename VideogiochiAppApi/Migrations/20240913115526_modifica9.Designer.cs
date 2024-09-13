@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VideogiochiAppApi.Data;
 
@@ -11,9 +12,11 @@ using VideogiochiAppApi.Data;
 namespace VideogiochiAppApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240913115526_modifica9")]
+    partial class modifica9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,6 +185,12 @@ namespace VideogiochiAppApi.Migrations
                     b.HasData(
                         new
                         {
+                            IdVideogiocoProprietario = 1,
+                            IdProprietario = 1,
+                            IdVideogioco = 1
+                        },
+                        new
+                        {
                             IdVideogiocoProprietario = 2,
                             IdProprietario = 2,
                             IdVideogioco = 2
@@ -203,24 +212,6 @@ namespace VideogiochiAppApi.Migrations
                             IdVideogiocoProprietario = 5,
                             IdProprietario = 1,
                             IdVideogioco = 4
-                        },
-                        new
-                        {
-                            IdVideogiocoProprietario = 6,
-                            IdProprietario = 5,
-                            IdVideogioco = 3
-                        },
-                        new
-                        {
-                            IdVideogiocoProprietario = 7,
-                            IdProprietario = 7,
-                            IdVideogioco = 2
-                        },
-                        new
-                        {
-                            IdVideogiocoProprietario = 1,
-                            IdProprietario = 2,
-                            IdVideogioco = 1
                         });
                 });
 

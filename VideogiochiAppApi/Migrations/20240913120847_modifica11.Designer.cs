@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VideogiochiAppApi.Data;
 
@@ -11,9 +12,11 @@ using VideogiochiAppApi.Data;
 namespace VideogiochiAppApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240913120847_modifica11")]
+    partial class modifica11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,12 +218,6 @@ namespace VideogiochiAppApi.Migrations
                             IdVideogiocoProprietario = 7,
                             IdProprietario = 7,
                             IdVideogioco = 2
-                        },
-                        new
-                        {
-                            IdVideogiocoProprietario = 1,
-                            IdProprietario = 2,
-                            IdVideogioco = 1
                         });
                 });
 

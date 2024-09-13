@@ -12,6 +12,13 @@ namespace VideogiochiAppApi.Repository
         {
             this.dataContext = dataContext;
         }
+
+        public bool CreatePaese(Paese paese)
+        {
+           dataContext.Add(paese);
+           return Save();
+        }
+
         public Paese? GetNome(string nome)
         {
             return dataContext.Paesi.FirstOrDefault(p => p.Name == nome);
@@ -26,5 +33,24 @@ namespace VideogiochiAppApi.Repository
         {
             return dataContext.Paesi.OrderBy(p => p.IdPaese).ToList();
         }
+
+        public bool Save()
+        {
+            var saveP = dataContext.SaveChanges();
+            return saveP > 0 ? true : false;
+        }
+
+        public bool UpdatePaese(Paese paese)
+        {
+            dataContext.Update(paese);
+            return Save();
+        }
+        public bool DeletePaese(Paese paese)
+        {
+            
+            dataContext.Remove(paese);
+            return Save();
+        }
+
     }
 }
